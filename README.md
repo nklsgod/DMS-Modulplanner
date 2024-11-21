@@ -24,7 +24,7 @@ Der Digital Media Systems Modulverlaufsplanner ist ein interaktives Webtool für
 
 1. Klonen Sie das Repository:
    ```bash
-   git clone [Repository-URL]
+   git clone git@github.com:nklsgod/DMS-Modulplanner.git
    
 2. Navigieren Sie in das Projektverzeichnis:
     cd DMS-Modulplanner 
