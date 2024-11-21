@@ -1,0 +1,94 @@
+body {
+  background-color: #4B5D66;
+  color: #FFFFFF;
+  font-family: Arial, sans-serif;
+}
+
+h1, h2, h3 {
+  color: #7FBB3D;
+}
+h1 {
+  text-align: center;
+}
+h5 {
+  color: black;
+}
+.table {
+  background-color: #FFFFFF;
+  color: #4B5D66;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.table thead {
+  background-color: #7FBB3D;
+  color: #FFFFFF;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #F2F2F2;
+}
+
+.table tbody tr:nth-child(odd) {
+  background-color: #FFFFFF;
+}
+
+.btn-primary {
+  background-color: #7FBB3D;
+  border-color: #7FBB3D;
+  border-radius: 5px;
+}
+
+.btn-primary:hover {
+  background-color: #6FAF34;
+  border-color: #6FAF34;
+}
+
+.btn-secondary {
+  background-color: #4B5D66;
+  border-color: #4B5D66;
+  border-radius: 5px;
+}
+
+.btn-secondary:hover {
+  background-color: #3A4A53;
+  border-color: #3A4A53;
+}
+
+.dropdown-menu {
+  background-color: #4B5D66;
+  color: #FFFFFF;
+  border-radius: 5px;
+}
+
+.dropdown-item {
+  color: #FFFFFF;
+}
+
+.dropdown-item:hover {
+  background-color: #7FBB3D;
+  color: #FFFFFF;
+}
+
+.progress {
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  background-color: #7FBB3D;
+  border-radius: 15px;
+}
+
+.dropdown{
+  align-content: center;
+}
+#progressDiv {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.dropdown-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100px; /* Passen Sie die Höhe nach Bedarf an */
+}
