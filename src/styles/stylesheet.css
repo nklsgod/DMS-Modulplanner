@@ -92,3 +92,24 @@ h5 {
   align-items: center;
   min-height: 100px; /* Passen Sie die Höhe nach Bedarf an */
 }
+.ects-info-tooltip {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  max-width: 300px;
+  z-index: 1000;
+}
+
+#progressDiv:hover .ects-info-tooltip {
+  display: block;
+}
+footer {
+  text-align: center;
+}
+img {
+margin-top: 25px;
+margin-left: 10px;
+}

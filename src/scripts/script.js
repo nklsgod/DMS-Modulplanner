@@ -208,28 +208,41 @@ function updateProgressBars() {
     const ectsByPool = calculateECTSByPool();
     let wahlECTS = ectsByPool.Wahlpflicht + ectsByPool.Wahlpflichtmodule;
     let uebfECTS = ectsByPool.Ueberfachlich;
-    let vertiefungECTS = ectsByPool.ITVertiefung;
-
-    // Adjust for selected Vertiefung
+    let vertiefungECTS = 0;
+  
     if (selectedVertiefung === 'Informatik') {
-        wahlECTS += ectsByPool.BWLVertiefung + ectsByPool.MedienVertiefung;
+      vertiefungECTS = ectsByPool.ITVertiefung;
+      wahlECTS += ectsByPool.BWLVertiefung + ectsByPool.MedienVertiefung;
     } else if (selectedVertiefung === 'BWL') {
-        vertiefungECTS += ectsByPool.BWLVertiefung;
-        wahlECTS += ectsByPool.ITVertiefung + ectsByPool.MedienVertiefung;
+      vertiefungECTS = ectsByPool.BWLVertiefung;
+      wahlECTS += ectsByPool.ITVertiefung + ectsByPool.MedienVertiefung;
     } else if (selectedVertiefung === 'Medien') {
-        vertiefungECTS += ectsByPool.MedienVertiefung;
-        wahlECTS += ectsByPool.ITVertiefung + ectsByPool.BWLVertiefung;
+      vertiefungECTS = ectsByPool.MedienVertiefung;
+      wahlECTS += ectsByPool.ITVertiefung + ectsByPool.BWLVertiefung;
     }
-
+  
+    // Übertragung überschüssiger ECTS vom Vertiefungspool zum Wahlpflichtpool
+    if (vertiefungECTS > 24) {
+      wahlECTS += vertiefungECTS - 24;
+      vertiefungECTS = 24;
+    }
+  
+    // Übertragung überschüssiger ECTS vom Überfachlichen Pool zum Wahlpflichtpool
+    if (uebfECTS > 12) {
+      wahlECTS += uebfECTS - 12;
+      uebfECTS = 12;
+    }
+  
+    // Aktualisierung der Fortschrittsbalken
     document.getElementById('wahl-ects').style.width = `${(wahlECTS / 39) * 100}%`;
     document.getElementById('wahl-ects').innerText = `${wahlECTS}/39`;
     document.getElementById('wahl-ects').setAttribute('aria-valuenow', wahlECTS);
-
+  
     document.getElementById('uebf').style.width = `${(uebfECTS / 12) * 100}%`;
     document.getElementById('uebf').innerText = `${uebfECTS}/12`;
     document.getElementById('uebf').setAttribute('aria-valuenow', uebfECTS);
-
+  
     document.getElementById('vertiefung-ects').style.width = `${(vertiefungECTS / 24) * 100}%`;
     document.getElementById('vertiefung-ects').innerText = `${vertiefungECTS}/24`;
     document.getElementById('vertiefung-ects').setAttribute('aria-valuenow', vertiefungECTS);
-}
+  }

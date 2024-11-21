@@ -10,9 +10,12 @@ const client = new MongoClient(uri);
 
 // CORS-Konfiguration
 const corsOptions = {
-  origin: 'http://localhost:5500',
+  origin: 'http://janniklasbenn.de',
   optionsSuccessStatus: 200
 };
+
+app.use(cors(corsOptions));
+
 
 app.use(cors(corsOptions));
 
